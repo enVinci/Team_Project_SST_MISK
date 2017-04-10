@@ -10,3 +10,4 @@ stationBuffors = [StationBuffor(Point(12,32), Point(1,4)), StationBuffor(Point(1
 paths = [Path(Point(12,32), Point(1,4), 1), Path(Point(12,32), Point(1,4), 2)]#sciezki dla robotow
 
 robotNames = ["Pioneer_p3dx", "Pioneer_p3dx", "Pioneer_p3dx", "Pioneer_p3dx", "Pioneer_p3dx", "Pioneer_p3dx"]
+palletNames = ["palette_0_0_0"]

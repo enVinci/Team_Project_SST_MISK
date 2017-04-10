@@ -5,12 +5,15 @@ class Storehouse:
     palets = []
     stations = []
     dockStations = []
+    stationBuffors = []
     paths = []
     
-    def __init__(self, places, stations, dockStations, stationBuffors, paths):
+    def __init__(self, places, palleteNames, stations, dockStations, stationBuffors, paths):
 	self.places = places
+	palleteNameIndex = 0
 	for obj in self.places:
-	    self.palets.append(Palette(obj.getPosition()))
+	    self.palets.append(Palette(obj.getPosition(), palleteNames[palleteNameIndex]))
+	    palleteNameIndex += 1
 	self.stations = stations
 	self.dockStations = dockStations
 	self.stationBuffors = stationBuffors

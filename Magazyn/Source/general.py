@@ -116,16 +116,21 @@ class PathWay:
 class Palette:
     beginPosition = Point()
     actualPosition = Point()
+    name = ""
     
-    def __init__(self, beginPosition):
+    def __init__(self, beginPosition, vrepName):
 	self.actualPosition = self.beginPosition = beginPosition
 	self.action = PaletteAction.isReady
+	self.name = vrepName
     
-    def changePosition(self, position):
+    def updatePosition(self, position):
 	self.actualPosition = position
     
     def getPosition(self):
 	return self.actualPosition
+    
+    def getName(self):
+	return self.name
     
     def setAction(self, action):
 	self.action = action

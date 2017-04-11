@@ -1,5 +1,6 @@
 from enum import Enum
 import math
+import vrep
 
 class Robots(Enum):
     Robot1 = 1
@@ -8,16 +9,16 @@ class Robots(Enum):
     Robot4 = 4
     Robot5 = 5
     Robot6 = 6
-    
+
     def __int__(self):
         return self.value
-  
+
 class Stations(Enum):
     A = 1
     B = 2
     C = 3
     D = 4
-    
+
     def __int__(self):
         return self.value
 
@@ -26,10 +27,10 @@ class StationBuffors(Enum):
     B = 2
     C = 3
     D = 4
-    
+
     def __int__(self):
         return self.value
-  
+
 class Dockstations(Enum):
     A = 1
     B = 2
@@ -37,17 +38,17 @@ class Dockstations(Enum):
     D = 4
     E = 5
     F = 6
-    
+
     def __int__(self):
 	return self.value
-  
+
 class PaletteAction(Enum):
     onRobot = 1
     inStation = 2
     inBufferPos1 = 3
     inBufferPos2 = 4
     isReady = 5
-  
+
 class Point(object):
     def __init__(self, x=0, y=0):
         self.x = x
@@ -58,7 +59,7 @@ class Point(object):
 
     def getY(self):
         return self.y
-      
+
     def set(self, x, y):
 	self.x = x
 	self.y = y
@@ -67,64 +68,69 @@ class Point(object):
       dx = self.x - other.x
       dy = self.y - other.y
       return math.hypot(dx, dy)
-    
+
     def rotate(self, other):
 	pass
-  
+
 class Path:
     startPosition = Point()
     endPosition = Point()
-    
+
     def __init__(self, startPosition, endPosition, nextPath1Id, nextPath2Id=0):
 	self.startPosition = startPosition
 	self.endPosition = endPosition
 	self.nextPath1Id = nextPath1Id
 	self.nextPath2Id = nextPath2Id
-    
+
     def getStartPosition(self):
 	return self.startPosition
-    
+
     def getEndPosition(self):
 	return self.endPosition
-    
+
     def getDistance(self):
 	return self.startPosition.distance(self.endPosition)
-    
+
     def getRotate(self):
 	pass
 
 class PathWay:
     paths = []
     index = 0;
-    
+
     def __init__(self):
 	pass
-    
+
     def addPath(self, pathId):
 	self.paths.append(pathId)
-	
+
     def nextPath(self):
 	if (self.index < self.length()):
 	    return self.paths[self.index]
 	else:
 	    return Path(Point(0,0), Point(0,0), 0)
-    
+
     def length(self):
 	return self.paths.count()
-    
-    
+
+
 class Palette:
     beginPosition = Point()
     actualPosition = Point()
     name = ""
-    
-    def __init__(self, beginPosition, vrepName):
-	self.actualPosition = self.beginPosition = beginPosition
-	self.action = PaletteAction.isReady
-	self.name = vrepName
-    
-    def updatePosition(self, position):
-	self.actualPosition = position
+    handler = 0
+
+    def __init__(self, beginPosition, vrepName, clientID):
+        self.actualPosition = self.beginPosition = beginPosition
+        self.action = PaletteAction.isReady
+        self.name = vrepName
+        self.clientID = clientID
+        errorCode,self.handler=vrep.simxGetObjectHandle(self.clientID,vrepName,vrep.simx_opmode_oneshot_wait)
+
+    def updatePosition(self):
+        errorCode, Position = vrep.simxGetObjectPosition(self.clientID, self.handler, -1, vrep.simx_opmode_oneshot_wait)
+        self.actualposition.x = Position[0]
+        self.actualposition.y = Position[1]
     
     def getPosition(self):
 	return self.actualPosition

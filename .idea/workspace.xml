@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50b3bdd7-e6b2-4b38-ae52-aef47c7d4bd9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Magazyn/Source/general.py" afterPath="$PROJECT_DIR$/Magazyn/Source/general.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Magazyn/Source/moveRobot.py" afterPath="$PROJECT_DIR$/Magazyn/Source/moveRobot.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Magazyn/Source/positions.py" afterPath="$PROJECT_DIR$/Magazyn/Source/positions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Magazyn/magazyn.py" afterPath="$PROJECT_DIR$/Magazyn/magazyn.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +20,8 @@
       <file leaf-file-name="magazyn.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Magazyn/magazyn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+            <state relative-caret-position="136">
+              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -41,33 +44,21 @@
       <file leaf-file-name="general.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Magazyn/Source/general.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1272">
-              <caret line="187" column="6" lean-forward="true" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
+            <state relative-caret-position="17">
+              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1491872765937" expanded="true" signature="2316:2605" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2348:2376" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2404:2422" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2460:2482" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2512:2532" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2560:2605" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2619:2809" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2661:2709" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2737:2759" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2789:2809" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2825:3062" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2880:2960" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="2992:3014" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3042:3062" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3082:3274" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3124:3172" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3204:3226" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3254:3274" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3296:3565" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3395:3451" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3484:3507" ph="..." />
-                <marker date="1491872765937" expanded="true" signature="3542:3565" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="positions.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Magazyn/Source/positions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,14 +66,16 @@
       <file leaf-file-name="moveRobot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Magazyn/Source/moveRobot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="272">
+              <caret line="16" column="84" lean-forward="false" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="storehause.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="storehause.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Magazyn/Source/storehause.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -122,10 +115,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Magazyn/Source/positions.py" />
-        <option value="$PROJECT_DIR$/Magazyn/magazyn.py" />
-        <option value="$PROJECT_DIR$/Magazyn/Source/general.py" />
         <option value="$PROJECT_DIR$/Magazyn/Source/moveRobot.py" />
+        <option value="$PROJECT_DIR$/Magazyn/Source/general.py" />
+        <option value="$PROJECT_DIR$/Magazyn/magazyn.py" />
+        <option value="$PROJECT_DIR$/Magazyn/Source/positions.py" />
       </list>
     </option>
   </component>
@@ -243,7 +236,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21785174" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -300,28 +293,6 @@
           <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1491872765937" expanded="true" signature="2316:2605" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2348:2376" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2404:2422" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2460:2482" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2512:2532" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2560:2605" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2619:2809" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2661:2709" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2737:2759" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2789:2809" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2825:3062" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2880:2960" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2992:3014" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3042:3062" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3082:3274" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3124:3172" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3204:3226" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3254:3274" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3296:3565" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3395:3451" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3484:3507" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3542:3565" ph="..." />
           </folding>
         </state>
       </provider>
@@ -354,16 +325,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Magazyn/magazyn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Magazyn/Source/moveRobotsInStorehouse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -374,57 +335,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Magazyn/Source/positions.py">
+    <entry file="file://$PROJECT_DIR$/Magazyn/Source/storehause.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="26" lean-forward="false" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Magazyn/Source/moveRobot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="84" lean-forward="false" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
           <folding>
-            <element signature="e#0#25#0" expanded="false" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Magazyn/Source/general.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1272">
-          <caret line="187" column="6" lean-forward="true" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
+        <state relative-caret-position="17">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1491872765937" expanded="true" signature="2316:2605" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2348:2376" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2404:2422" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2460:2482" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2512:2532" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2560:2605" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2619:2809" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2661:2709" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2737:2759" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2789:2809" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2825:3062" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2880:2960" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="2992:3014" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3042:3062" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3082:3274" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3124:3172" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3204:3226" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3254:3274" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3296:3565" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3395:3451" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3484:3507" ph="..." />
-            <marker date="1491872765937" expanded="true" signature="3542:3565" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Magazyn/Source/moveRobot.py">
+    <entry file="file://$PROJECT_DIR$/Magazyn/magazyn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="136">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Magazyn/Source/storehause.py">
+    <entry file="file://$PROJECT_DIR$/Magazyn/Source/positions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />

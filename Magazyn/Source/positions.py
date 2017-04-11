@@ -43,7 +43,7 @@ stationBuffors = [StationBuffor(Point(-9.5,-5.25), Point(-9.5,-5.75)), StationBu
 
 paths = [Path(Point(12,32), Point(1,4), 1), Path(Point(12,32), Point(1,4), 2)]#sciezki dla robotow
 
-robotNames = ["Pioneer_p3dx", "Pioneer_p3dx#0", "Pioneer_p3dx#1", "Pioneer_p3dx#2", "Pioneer_p3dx#3", "Pioneer_p3dx#4"]
+robotNames = ["Pioneer_p3dx_0", "Pioneer_p3dx_1", "Pioneer_p3dx_2", "Pioneer_p3dx_3", "Pioneer_p3dx_4", "Pioneer_p3dx_5"]
 
 palletNames = ["palette_0_0_0","palette_0_0_1","palette_0_0_2","palette_0_0_3","palette_0_0_4","palette_0_0_5","palette_0_0_6",
                "palette_0_0_7","palette_0_0_8","palette_0_0_9","palette_0_0_10","palette_0_0_11","palette_0_0_12","palette_0_0_13",

@@ -50,9 +50,15 @@ class MoveRobot:
         returnCode, rightAngle = vrep.simxGetJointPosition(self.clientID, self.right_motor_handle, vrep.simx_opmode_oneshot_wait)
         returnCode, leftAngle = vrep.simxGetJointPosition(self.clientID, self.left_motor_handle, vrep.simx_opmode_oneshot_wait)
         degrees = degrees*180/math.pi
+        rightAngle = rightAngle*180/math.pi
+        leftAngle = leftAngle*180/math.pi
 
         rightAngle += degrees*self.d/(2*self.R)
         leftAngle += -degrees*self.d/(2*self.R)
+        
+        rightAngle = rightAngle*math.pi/180
+        leftAngle = leftAngle*math.pi/180
+        
         returnCode = vrep.simxSetJointTargetPosition(self.clientID, self.right_motor_handle, rightAngle, vrep.simx_opmode_oneshot_wait)
         returnCode = vrep.simxSetJointTargetPosition(self.clientID, self.left_motor_handle, leftAngle, vrep.simx_opmode_oneshot_wait)
         time.sleep(2)

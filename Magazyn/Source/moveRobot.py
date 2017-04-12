@@ -29,7 +29,7 @@ class MoveRobot:
         angle = math.atan2(dy,dx)
         returnCode, Angles = vrep.simxGetObjectOrientation(self.clientID, self.handle, -1,
                                                            vrep.simx_opmode_oneshot_wait)
-        self.rotate(angle-Angles[2])
+        self.rotate((angle-Angles[2])*180/math.pi)
         dist = math.hypot(dx, dy)
 
 
@@ -49,6 +49,8 @@ class MoveRobot:
 
         returnCode, rightAngle = vrep.simxGetJointPosition(self.clientID, self.right_motor_handle, vrep.simx_opmode_oneshot_wait)
         returnCode, leftAngle = vrep.simxGetJointPosition(self.clientID, self.left_motor_handle, vrep.simx_opmode_oneshot_wait)
+        degrees = degrees*180/math.pi
+
         rightAngle += degrees*self.d/(2*self.R)
         leftAngle += -degrees*self.d/(2*self.R)
         returnCode = vrep.simxSetJointTargetPosition(self.clientID, self.right_motor_handle, rightAngle, vrep.simx_opmode_oneshot_wait)

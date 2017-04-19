@@ -5,22 +5,25 @@ class Dimentions:
 	dimX = 0
 	dimY = 0
 	space = 0
-	objectCount = 0
+	rowsNumber = 0
+	columnsCount = 0
 	
-	def __init__(self, dimX, dimY = None, space = None, objectCount = None):
+	def __init__(self, dimX, dimY = None, space = None, rowsNumber = None, columnsNumber = None):
 		if isinstance(dimX, Dimentions):
 		      self.init2(dimX)
 		else:
 		      self.dimX = dimX
 		      self.dimY = dimY
 		      self.space = space
-		      self.objectCount = objectCount
+		      self.rowsNumber = rowsNumber
+		      self.columnsCount = columnsNumber
 		
 	def init2(self, dim):
 		self.dimX = dim.getDimX()
 		self.dimY = dim.getDimY()
 		self.space = dim.getSpace()
-		self.objectCount = dim.getObjectCount()
+		self.rowsNumber = dim.getRowsCount()
+		self.columnsCount = dim.getColumnsCount()
 	
 	def getDimX(self):# zwraca szerokosc pojedynczego obiektu w bloku
 		return self.dimX
@@ -31,13 +34,16 @@ class Dimentions:
 	def getSpace(self):# zwraca odstep pomiedzy pojedynczymi obiektami w bloku
 		return self.space
 	
-	def getObjectCount(self):# zwraca ilosc obiektow w bloku
-		return self.objectCount
+	def getRowsCount(self):# zwraca ilosc wierszy w bloku obiektow
+		return self.rowsNumber
+	
+	def getColumnsCount(self):# zwraca ilosc kolumn w bloku obiektow
+		return self.columnsCount
 
 class BlockOfPaletts(Dimentions):
 	points = []
 	
-	def __init__(self, point1, point2, point3, point4, dim):
+	def __init__(self, point1, point2, point3, point4, dim):# 4 wspolrzedne wierzcholkow palet
 		self.points.append(point1)
 		self.points.append(point2)
 		self.points.append(point3)

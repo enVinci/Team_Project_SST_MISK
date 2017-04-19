@@ -1,6 +1,16 @@
 from Source import *
 from Source import vrep
 
+# create paths
+d = Dimentions(4, 5, 1, 16)
+print(d.getDimX())
+b = BlockOfPaletts(Point(1,1), Point(14,1), Point(14,6), Point(1,6), d)
+print(b.getDimX())
+p = CreatePaths()
+p.addBlock(b)
+p.createPathsAroundBlocks()
+
+# start symulation
 port = 19999
 vrep.simxFinish(-1) # just in case, close all opened connections
 clientID=vrep.simxStart('127.0.0.1',port,True,True,5000,5) # Connect to V-REP

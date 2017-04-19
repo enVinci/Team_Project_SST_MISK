@@ -1,2 +1,3 @@
 .directory
 .kdev4/
+*.pyc

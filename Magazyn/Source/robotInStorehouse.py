@@ -1,23 +1,23 @@
-from moveRobot import MoveRobot
+from .moveRobot import MoveRobot
 
 class RobotInStorehouse:
     def __init__(self, name):
         self.robot = MoveRobot(name)
         
     def goOnPath(self, pathId):
-	pass
+	    pass
     
     def goPathToEnd(self, pathId):
-	pass
+	    pass
     
     def goOutOfPath(self, paletteId):
-	pass
+	    pass
     
     def joinPallete(self, paletteId):
-	pass
+	    pass
     
     def unjoinPalette(self, paletteId):
-	pass
+	    pass
       
     def setSpeed(self, velocity):
-	self.robot.setSpeed(velocity)
+	    self.robot.setSpeed(velocity)

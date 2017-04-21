@@ -1,7 +1,7 @@
-from general import Point
-from general import StationBuffor
-from general import Path
-from general import Place
+from .general import Point
+from .general import StationBuffor
+from .general import Path
+from .general import Place
 
 places = [Place(Point(3.3,2.75), 1), Place(Point(3.3,2.25), 2), Place(Point(2.7,2.75), 3), Place(Point(2.7,2.25), 4),
           Place(Point(2.1,2.75), 5), Place(Point(2.1,2.25), 6), Place(Point(1.5,2.75), 7), Place(Point(1.5,2.25), 8),

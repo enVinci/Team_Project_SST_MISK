@@ -1,5 +1,5 @@
-from general import Point
-from general import Path
+from .general import Point
+from .general import Path
 
 class Dimentions:
 	dimX = 0

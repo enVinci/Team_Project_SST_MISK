@@ -1,6 +1,7 @@
 from enum import Enum
 import math
-import vrep
+from Source import vrep
+from  Source import vrepConst
 
 class Robots(Enum):
     Robot1 = 1
@@ -40,7 +41,7 @@ class Dockstations(Enum):
     F = 6
 
     def __int__(self):
-	return self.value
+    	return self.value
 
 class PaletteAction(Enum):
     onRobot = 1
@@ -61,8 +62,8 @@ class Point(object):
         return self.y
 
     def set(self, x, y):
-	self.x = x
-	self.y = y
+    	self.x = x
+    	self.y = y
 
     def distance(self, other):
       dx = self.x - other.x
@@ -70,48 +71,48 @@ class Point(object):
       return math.hypot(dx, dy)
 
     def rotate(self, other):
-	pass
+    	pass
 
 class Path:
     startPosition = Point()
     endPosition = Point()
 
     def __init__(self, startPosition, endPosition, nextPath1Id, nextPath2Id=0):
-	self.startPosition = startPosition
-	self.endPosition = endPosition
-	self.nextPath1Id = nextPath1Id
-	self.nextPath2Id = nextPath2Id
+    	self.startPosition = startPosition
+    	self.endPosition = endPosition
+    	self.nextPath1Id = nextPath1Id
+    	self.nextPath2Id = nextPath2Id
 
     def getStartPosition(self):
-	return self.startPosition
+	    return self.startPosition
 
     def getEndPosition(self):
-	return self.endPosition
+    	return self.endPosition
 
     def getDistance(self):
-	return self.startPosition.distance(self.endPosition)
+	    return self.startPosition.distance(self.endPosition)
 
     def getRotate(self):
-	pass
+    	pass
 
 class PathWay:
     paths = []
     index = 0;
 
     def __init__(self):
-	pass
+    	pass
 
     def addPath(self, pathId):
-	self.paths.append(pathId)
+	    self.paths.append(pathId)
 
     def nextPath(self):
-	if (self.index < self.length()):
-	    return self.paths[self.index]
-	else:
-	    return Path(Point(0,0), Point(0,0), 0)
+	    if (self.index < self.length()):
+	        return self.paths[self.index]
+	    else:
+	       return Path(Point(0,0), Point(0,0), 0)
 
     def length(self):
-	return self.paths.count()
+	    return self.paths.count()
 
 
 class Palette:
@@ -125,72 +126,72 @@ class Palette:
         self.action = PaletteAction.isReady
         self.name = vrepName
         self.clientID = clientID
-        errorCode,self.handler=vrep.simxGetObjectHandle(self.clientID,vrepName,vrep.simx_opmode_oneshot_wait)
+        errorCode,self.handler=vrep.simxGetObjectHandle(self.clientID,vrepName,vrepConst.simx_opmode_oneshot_wait)
 
     def updatePosition(self):
-        errorCode, Position = vrep.simxGetObjectPosition(self.clientID, self.handler, -1, vrep.simx_opmode_oneshot_wait)
+        errorCode, Position = vrep.simxGetObjectPosition(self.clientID, self.handler, -1, vrepConst.simx_opmode_oneshot_wait)
         self.actualposition.x = Position[0]
         self.actualposition.y = Position[1]
     
     def getPosition(self):
-	return self.actualPosition
+	    return self.actualPosition
     
     def getName(self):
-	return self.name
+	    return self.name
     
     def setAction(self, action):
-	self.action = action
+	    self.action = action
     
     def getAction(self):
-	return self.action
+	    return self.action
     
     def isReady(self):
-	return self.action == PaletteAction.isReady
+	    return self.action == PaletteAction.isReady
 
 class Place:
     def __init__(self, position, pathId):
-	self.position = position
-	self.pathId = pathId
+	    self.position = position
+	    self.pathId = pathId
 
     def getPosition(self):
-	return self.position
+	    return self.position
       
     def getPath(self):
-	return self.pathId
+	    return self.pathId
 
 class Station:
     def __init__(self, serviceTime, position, pathId):
-	self.serviceTime = serviceTime
-	self.position = position
-	self.pathId = pathId
+	    self.serviceTime = serviceTime
+	    self.position = position
+	    self.pathId = pathId
     
     def getPosition(self):
-	return self.position
+	    return self.position
     
     def getPath(self):
-	return self.pathId
+	    return self.pathId
 
 class DockStation:
     def __init__(self, position, pathId):
-	self.position = position
-	self.pathId = pathId
-    
+        self.position = position
+        self.pathId = pathId
+
     def getPosition(self):
-	return self.position
+	    return self.position
     
     def getPath(self):
-	return self.pathId
+        return self.pathId
 
 class StationBuffor:
     position1 = Point()
     position2 = Point()
     
     def __init__(self, position1, position2):
-	self.position1 = position1
-	self.position2 = position2
+	    self.position1 = position1
+	    self.position2 = position2
     
     def getPosition1(self):
-	return self.position1
+	    return self.position1
       
     def getPosition2(self):
-	return self.position2
+	    return self.position2

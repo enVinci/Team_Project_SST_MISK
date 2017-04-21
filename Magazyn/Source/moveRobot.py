@@ -1,7 +1,6 @@
 ﻿from general import Point
 import vrep
 import math
-import time
 
 class MoveRobot:
     position = Point()
@@ -61,7 +60,6 @@ class MoveRobot:
         
         returnCode = vrep.simxSetJointTargetPosition(self.clientID, self.right_motor_handle, rightAngle, vrep.simx_opmode_oneshot_wait)
         returnCode = vrep.simxSetJointTargetPosition(self.clientID, self.left_motor_handle, leftAngle, vrep.simx_opmode_oneshot_wait)
-        time.sleep(2)
 
 
         pass

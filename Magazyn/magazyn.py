@@ -1,6 +1,23 @@
 from Source import *
 from Source import vrep
 
+def initPalettes(clientID, paletteNames):
+    maxNumb = len(paletteNames)
+    Palettes = []
+    for i in range(maxNumb):
+        Palettes.append(Palette(Point(0,0), paletteNames[i], clientID))
+        Palettes[i].updatePosition()
+    return Palettes
+
+def updatePalettePositions(Palettes):
+    maxNumb = len(Palettes)
+    palettePlaces = []
+    for Pal in Palettes:
+        Pal.updatePosition()
+        palettePlaces.append(Pal.getPosition())
+    return palettePlaces
+
+
 # create paths
 d = Dimentions(4, 5, 1, 16)
 print(d.getDimX())

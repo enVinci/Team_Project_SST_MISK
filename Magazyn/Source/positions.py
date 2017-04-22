@@ -64,3 +64,10 @@ palletNames = ["palette_0_0_0","palette_0_0_1","palette_0_0_2","palette_0_0_3","
                "palette_3_1_0","palette_3_1_1","palette_3_1_2","palette_3_1_3","palette_3_1_4","palette_3_1_5","palette_3_1_6",
                "palette_3_1_7","palette_3_1_8","palette_3_1_9","palette_3_1_10","palette_3_1_11","palette_3_1_12","palette_3_1_13",
                "palette_3_1_14","palette_3_1_15"]
+BigBoxNames = [] # karton
+
+smallBoxNames = []# maly_karton
+
+boxNames = [] # pudelko
+
+dockStationNames = []

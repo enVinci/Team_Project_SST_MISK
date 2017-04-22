@@ -6,6 +6,7 @@ class Storehouse:
 	stations = []
 	dockStations = []
 	stationBuffors = []
+	paths = []
 	
 	def __init__(self, places, palleteNames, stations, dockStations, stationBuffors, paths):
 		self.places = places

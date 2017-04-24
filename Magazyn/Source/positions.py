@@ -64,10 +64,35 @@ palletNames = ["palette_0_0_0","palette_0_0_1","palette_0_0_2","palette_0_0_3","
                "palette_3_1_0","palette_3_1_1","palette_3_1_2","palette_3_1_3","palette_3_1_4","palette_3_1_5","palette_3_1_6",
                "palette_3_1_7","palette_3_1_8","palette_3_1_9","palette_3_1_10","palette_3_1_11","palette_3_1_12","palette_3_1_13",
                "palette_3_1_14","palette_3_1_15"]
-BigBoxNames = [] # karton
 
-smallBoxNames = []# maly_karton
+BigBoxNames = ["karton_01","karton_02","karton_03","karton_04","karton_05",
+               "karton_06","karton_07","karton_08","karton_09","karton_10","karton_11",
+               "karton_12","karton_13","karton_14","karton_15","karton_16","karton_17",
+               "karton_18","karton_19","karton_20","karton_21","karton_22","karton_23",
+               "karton_24","karton_25","karton_26","karton_27","karton_28","karton_29",
+               "karton_30","karton_31","karton_32","karton_33","karton_34","karton_35",
+               "karton_36","karton_37","karton_38","karton_39","karton_40","karton_41",
+               "karton_42","karton_43","karton_44"]
+# karton
 
-boxNames = [] # pudelko
+smallBoxNames = ["maly_karton_01","maly_karton_02","maly_karton_03","maly_karton_04","maly_karton_05","maly_karton_06",
+                 "maly_karton_07","maly_karton_08","maly_karton_09","maly_karton_10","maly_karton_11","maly_karton_12",
+                 "maly_karton_13","maly_karton_14","maly_karton_15","maly_karton_16","maly_karton_17","maly_karton_18",
+                 "maly_karton_19","maly_karton_20","maly_karton_21","maly_karton_22","maly_karton_23","maly_karton_24",
+                 "maly_karton_25","maly_karton_26","maly_karton_27","maly_karton_28","maly_karton_29","maly_karton_30",
+                 "maly_karton_31","maly_karton_32","maly_karton_33","maly_karton_34","maly_karton_35","maly_karton_36",
+                 "maly_karton_37","maly_karton_38","maly_karton_39","maly_karton_40","maly_karton_41","maly_karton_42",
+                 "maly_karton_43","maly_karton_44","maly_karton_45","maly_karton_46","maly_karton_47"]
+# maly_karton
 
-dockStationNames = []
+boxNames = ["pudelko_01","pudelko_02","pudelko_03","pudelko_04","pudelko_05","pudelko_06",
+            "pudelko_07","pudelko_08","pudelko_09","pudelko_10","pudelko_11","pudelko_12",
+            "pudelko_13","pudelko_14","pudelko_15","pudelko_16","pudelko_17","pudelko_18",
+            "pudelko_19","pudelko_20","pudelko_21","pudelko_22","pudelko_23","pudelko_24",
+            "pudelko_25","pudelko_26","pudelko_27","pudelko_28","pudelko_29","pudelko_30",
+            "pudelko_31","pudelko_32","pudelko_33","pudelko_34","pudelko_35","pudelko_36",
+            "pudelko_37","pudelko_38","pudelko_39","pudelko_40","pudelko_41","pudelko_42","pudelko_43"] 
+# pudelko
+
+dockStationNames = ["stacja_dokujaca_01","stacja_dokujaca_02","tacja_dokujaca_03",
+                    "stacja_dokujaca_04","stacja_dokujaca_05","stacja_dokujaca_06"]

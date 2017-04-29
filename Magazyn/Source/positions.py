@@ -96,3 +96,5 @@ boxNames = ["pudelko_01","pudelko_02","pudelko_03","pudelko_04","pudelko_05","pu
 
 dockStationNames = ["stacja_dokujaca_01","stacja_dokujaca_02","tacja_dokujaca_03",
                     "stacja_dokujaca_04","stacja_dokujaca_05","stacja_dokujaca_06"]
+stationsNames = ["stacja_obslugi_01","stacja_obslugi_02","stacja_obslugi_03","stacja_obslugi_04"]
+

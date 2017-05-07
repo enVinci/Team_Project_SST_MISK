@@ -19,7 +19,7 @@ class MoveRobot:
 		errorCode,self.handle=vrep.simxGetObjectHandle(GlobalVar.vrepClientID,self.name,vrepConst.simx_opmode_oneshot_wait)
 		errorCode, self.left_motor_handle=vrep.simxGetObjectHandle(GlobalVar.vrepClientID,vrepName+'_leftMotor',vrepConst.simx_opmode_oneshot_wait)
 		errorCode, self.right_motor_handle=vrep.simxGetObjectHandle(GlobalVar.vrepClientID,vrepName+'_rightMotor',vrepConst.simx_opmode_oneshot_wait)
-	
+
 	def goToDestinationPoint(self, destinationPoint): #zakładam, że jestem już obrócony, jeśli nie - dodam kilka linijek
 		destX = destinationPoint.x
 		destY = destinationPoint.y
@@ -75,5 +75,5 @@ class MoveRobot:
 	def getPosition(self):
 		return self.position
 	
-	def getPosition(self):
-		return self.position
+	def getName(self):
+		return self.name

@@ -195,3 +195,32 @@ class StationBuffor:
 	
 	def getPosition2(self):
 		return self.position2
+
+class Task:
+	availabilityTime
+	priority
+	taskType
+	paletteId
+	station#typu Stations
+	
+	def __init__(self, availabilityTime, priority, taskType, paletteId, station):
+		self.availabilityTime = availabilityTime
+		self.priority = priority
+		self.taskType = taskType
+		self.paletteId = paletteId
+		self.station = station
+	
+	def getAvailabilityTime(self)
+		return self.availabilityTime
+	
+	def getPriority(self)
+		return self.priority
+	
+	def getTaskType(self)
+		return self.taskType
+	
+	def getPaletteId(self)
+		return self.paletteId
+	
+	def getDestinationStation(self)
+		return self.station

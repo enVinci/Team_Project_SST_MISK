@@ -51,6 +51,11 @@ class PaletteAction(Enum):
 	inBufferPos2 = 4
 	isReady = 5
 
+class TaskType(Enum):
+	TAKE_ITEM = 1
+	PUT_ITEM = 2
+	INSPECTION = 3
+
 class Point(object):
 	def __init__(self, x=0, y=0):
 		self.x = x

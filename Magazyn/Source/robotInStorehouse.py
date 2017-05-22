@@ -1,37 +1,54 @@
 from .moveRobot import MoveRobot
-from Source import vrep
-from  Source import vrepConst
+from .vrep import *
+from  .vrepConst import *
 from .globalVar import GlobalVar
-from Source import positions
+from .positions import *
+from .general import Point
+import math
 
 class RobotInStorehouse:
-	def __init__(self, name):
-		self.robot = MoveRobot(name)
-	
-	def goOnPath(self, pathId):
-		pass
-	
-	def goPathToEnd(self, pathId):
-		pass
-	
-	def goOutOfPath(self, paletteId):
-		pass
+    def __init__(self, name):
+        self.robot = MoveRobot(name)
+    
+    def goOnPath(self, pathId):
+        targetPoint = paths(pathId).getStartPosition()
+        # currentPoint = self.robot.updatePosition()
+        self.robot.goToDestinationPoint(targetPoint)
+        # dx = targetPoint.getX()-currentPoint.getX()
+        # dy = targetPoint.getY()-currentPoint.getY()
+        # angle = math.atan2(dy, dx)
+        # self.robot.rotate(angle * 180 / math.pi)
 
-	# Według dokumentacji to jest klasa niższego poziomu, niż moveRobotsInStorehouse, więc tutaj wykonuję wywołania
-	# funkcji z v-repa podlączające i odłączające robota do o od palety
+        pass
+    
+    def goPathToEnd(self, pathId):
+        targetPoint = paths(pathId).getDestinationPosition()
+        self.robot.goToDestinationPoint(targetPoint)
+        pass
+    
+    def goOutOfPath(self, paletteId):
+        errorCode, paletteHandle = simxGetObjectHandle(GlobalVar.vrepClientID,
+                                    palletNames(paletteId),
+                                    simx_opmode_oneshot_wait)
+        errorCode, position = simxGetObjectPosition(GlobalVar.vrepClientID, paletteHandle, -1, simx_opmode_oneshot_wait)
+        self.robot.goToDestinationPoint(Point(position[0],position[1]))
+        pass
 
-	def joinPallete(self, paletteId):
-		errorCode, paletteHandle = vrep.simxGetObjectHandle(GlobalVar.vrepClientID,
-									positions.palletNames(paletteId),
-									vrepConst.simx_opmode_oneshot_wait)
-		vrep.simxSetObjectParent(GlobalVar.vrepClientID, paletteHandle, self.handle, 1, vrep.simx_opmode_oneshot_wait)
-		pass
+    # Według dokumentacji to jest klasa niższego poziomu, niż moveRobotsInStorehouse, więc tutaj wykonuję wywołania
+    # funkcji z v-repa podlączające i odłączające robota do o od palety
 
-	def unjoinPalette(self, paletteId):
-		errorCode, paletteHandle = vrep.simxGetObjectHandle(GlobalVar.vrepClientID, positions.palletNames(paletteId),
-															vrepConst.simx_opmode_oneshot_wait)
-		vrep.simxSetObjectParent(GlobalVar.vrepClientID, paletteHandle, -1, 1, vrep.simx_opmode_oneshot_wait)
-		pass
+    def joinPallete(self, paletteId):
+        errorCode, paletteHandle = simxGetObjectHandle(GlobalVar.vrepClientID,
+                                                            palletNames(paletteId),
+                                    simx_opmode_oneshot_wait)
+        simxSetObjectParent(GlobalVar.vrepClientID, paletteHandle, self.handle, 1, simx_opmode_oneshot_wait)
+        pass
 
-	def setSpeed(self, velocity):
-		self.robot.setSpeed(velocity)
+    def unjoinPalette(self, paletteId):
+        errorCode, paletteHandle = simxGetObjectHandle(GlobalVar.vrepClientID, palletNames(paletteId),
+                                                            simx_opmode_oneshot_wait)
+        simxSetObjectParent(GlobalVar.vrepClientID, paletteHandle, -1, 1, simx_opmode_oneshot_wait)
+        pass
+
+    def setSpeed(self, velocity):
+        self.robot.setSpeed(velocity)

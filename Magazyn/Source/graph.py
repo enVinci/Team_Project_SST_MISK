@@ -46,8 +46,6 @@ class Graph:
             i = i + 1
 
         while unvisitedNodes != set():
-            print()
-            print()
             # values = [[0] * len(unvisitedNodes) for i in range(2)]
             values2 = []
             valuesDict2 = dict()
@@ -59,7 +57,6 @@ class Graph:
                 i = i + 1
 
             # print("wtf ", values[0][0])
-            print("wypisanie elementow:", values2)
 
             ######Znalezienie najmniejszego elementu
             u = 1e10+1
@@ -68,17 +65,23 @@ class Graph:
                 if u > values2[i][1]:
                     u = values2[i][1]
                     k = i
-            print()
+
             if values2[k][0] == pDest:
                 p1 = pDest
                 path = list()
-                while p1 != pOrigin:
-                    print("Końcowa trasa:", p1)
+                cost = 0
+                while follower != dict() and p1 != None:
                     path.append(p1)
-                    p1 = follower.get(p1)
-                path.append(pOrigin)
-                return path
-            print("najmniejszy element:", k, ", stąd mamy punkt: ", values2[k][0])
+                    p2 = p1
+                    p1 = follower.pop(p1, None)
+                    if(p1 == pOrigin):
+                        path.append(p1)
+                        cost = cost+self.nodes.get(p2,None).get(p1)
+                        break
+                    c1 = self.nodes.get(p2, None)
+                    if c1 != None:
+                        cost = cost + c1.get(p1)
+                return (path, cost)
 
             #usunięcie elementu o najmniejszej odległości z nieodwiedzonych elementów
             unvisitedNodes.discard(values2[k][0])
@@ -92,58 +95,67 @@ class Graph:
 
             #dla każdego sąsiada wybranego wierzchołka:
             for p in subset:
-                print("Element zbioru: ", p)
                 if valuesDict2.get(p, None) != None:
                     a1 = values2[valuesDict2.get(p, None)][1]
                     a2 = values2[k][1]+self.nodes.get(p,None).get(values2[k][0])
-                    print("porównanie", a1, a2)
                     if a1 > a2:
-                        print("Element zbioru o mniejszej odległości: ", p)
                         a3 = values2[k][1]
                         a3 += self.nodes.get(p,None).get(values2[k][0])
-                        # print("test3: ", a3, ", ", type(a3))
-                        print("test1: ", values2[valuesDict2.get(p, None)][1])
                         values[valuesDict.get(p, None)][1] = a2
 
-                        # print("test test", valuesDict2.get(p, None))
-
                         values2[valuesDict2.get(p, None)][1] = a2
-                        print("test2: ", values2[valuesDict2.get(p, None)][1])
                         follower.pop(p, None)
                         follower.update({p: values2[k][0]})
                         unvisitedNodes.add(p)
 
-        return follower
+        p1 = pDest
+        path = list()
+        cost = 0
+        while follower != dict() and p1 != None:
+            path.append(p1)
+            p2 = p1
+            p1 = follower.pop(p1, None)
+            if(p1 == pOrigin):
+                path.append(p1)
+                cost = cost+self.nodes.get(p2,None).get(p1)
+                break
+            c1 = self.nodes.get(p2,None)
+            if c1 != None:
+                cost = cost+c1.get(p1)
+        return (path, cost)
+
 
 G = Graph()
 
-G.addNode("1")
-G.addNode("2")
-G.addNode("3")
-G.addNode("4")
-G.addNode("5")
-G.addNode("6")
-G.addNode("7")
-G.addNode("8")
+G.addNode("a")
+G.addNode("b")
+G.addNode("c")
+G.addNode("d")
+G.addNode("e")
+G.addNode("f")
+G.addNode("g")
+G.addNode("h")
 
+# G.addConnection(1, "a", "b")
+# G.addConnection(2, "b", "c")
+# G.addConnection(1, "c", "d")
+# G.addConnection(2, "c", "e")
+# G.addConnection(1, "e", "g")
+# G.addConnection(3, "g", "b")
+# G.addConnection(1, "f", "g")
+# G.addConnection(4, "a", "g")
 
-G.addConnection(1, "1", "2")
-G.addConnection(1, "2", "3")
-G.addConnection(1, "3", "8")
-G.addConnection(2, "7", "8")
-G.addConnection(2, "1", "4")
-G.addConnection(2, "4", "5")
-G.addConnection(1, "4", "6")
-G.addConnection(2, "7", "6")
+G.addConnection(1, "a", "b")
+G.addConnection(1, "c", "b")
+G.addConnection(3, "d", "b")
+G.addConnection(1, "e", "b")
+G.addConnection(1, "f", "b")
+G.addConnection(1, "g", "b")
+G.addConnection(1, "h", "b")
+G.addConnection(1, "h", "d")
 
-# dictionary = G.returnConnections("a")
-# for k,v in dictionary.items():
-#     print(k, v)
-# print("przerwa")
-# dictionary = G.returnConnections("x")
-# for k,v in dictionary.items():
-#     print(k, v)
-
-Path = G.findPathDijkstra("1", "7")
-for k in Path:
+tup = G.findPathDijkstra("a", "d")
+l = tup[0]
+for k in l:
     print(k)
+print("koszt:", tup[1])

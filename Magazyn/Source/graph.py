@@ -24,6 +24,8 @@ class Graph:
 
     def findPathDijkstra(self, pOrigin, pDest):
         #####inicjalizacja
+        if self.nodes.get(pOrigin) == None or self.nodes.get(pDest) == None:
+            return ([],0)
         properPath = []
         follower = dict()
         unvisitedNodes = set()
@@ -154,7 +156,7 @@ G.addConnection(1, "g", "b")
 G.addConnection(1, "h", "b")
 G.addConnection(1, "h", "d")
 
-tup = G.findPathDijkstra("a", "d")
+tup = G.findPathDijkstra("a", "x")
 l = tup[0]
 for k in l:
     print(k)

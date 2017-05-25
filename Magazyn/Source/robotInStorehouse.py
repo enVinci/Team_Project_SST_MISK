@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from .moveRobot import MoveRobot
 from .vrep import *
 from  .vrepConst import *

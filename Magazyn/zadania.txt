@@ -1,0 +1,19 @@
+﻿% pierwsza kolumna - availabilityTime,
+% druga kolumna - priority, 
+%3 kolumna - taskType, 
+%4 kolumna - paletteId, 
+%5 kolumna - station 
+2 1 0 1 1;
+3 1 1 20 2;    
+4 2 2 4 3; 
+5 1 2 3 4;
+6 0 0 -10 1;
+7 -2 1 48 2;  
+8 1 2 -56 3;
+9 1 2 98 4;
+10 0 0 7 1;
+11 2 1 105 2;
+12 1 2 2 3;
+13 0 2 67 4;
+14 2 0 76 1;
+15 1 1 123 2;

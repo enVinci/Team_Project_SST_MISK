@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from .robotInStorehouse import RobotInStorehouse
 from .general import *
 from .positions import *

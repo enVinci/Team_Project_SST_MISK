@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from enum import Enum
 import math
 from Source import vrep
@@ -52,9 +53,9 @@ class PaletteAction(Enum):
 	isReady = 5
 
 class TaskType(Enum):
-	TAKE_ITEM = 1
-	PUT_ITEM = 2
-	INSPECTION = 3
+	TAKE_ITEM = 0
+	PUT_ITEM = 1
+	INSPECTION = 2
 
 class Point(object):
 	def __init__(self, x=0, y=0):
@@ -202,30 +203,74 @@ class StationBuffor:
 		return self.position2
 
 class Task:
-	availabilityTime
-	priority
-	taskType
-	paletteId
-	station#typu Stations
-	
 	def __init__(self, availabilityTime, priority, taskType, paletteId, station):
 		self.availabilityTime = availabilityTime
 		self.priority = priority
 		self.taskType = taskType
 		self.paletteId = paletteId
 		self.station = station
-	
-	def getAvailabilityTime(self)
+
+	def getAvailabilityTime(self):
 		return self.availabilityTime
-	
-	def getPriority(self)
+
+	def getPriority(self):
 		return self.priority
-	
-	def getTaskType(self)
+
+	def getTaskType(self):
 		return self.taskType
-	
-	def getPaletteId(self)
+
+	def getPaletteId(self):
 		return self.paletteId
-	
-	def getDestinationStation(self)
+
+	def getDestinationStation(self):
 		return self.station
+
+	def printTask(self):
+		print(self.availabilityTime, self.priority, self.taskType, self.paletteId, self.station)
+
+
+def openTasks(filename):
+	lines = []
+	with open(filename) as zadania:
+		linie = zadania.readlines()
+		for linia in linie:
+			linia = linia.split()
+			if linia[0].isdigit():
+				linia = ' '.join(linia)
+				linie = linia.split(';')
+				for line in linie[0:-1]:
+					line = line.split()
+					line = list(map(int, line))
+					if len(line) == 5:
+						lines.append(line)
+
+	tab = []
+
+	TTypes = [enum.value for enum in TaskType]
+	TEnums = [enum for enum in TaskType]
+
+	STypes = [enum.value for enum in Stations]
+	SEnums = [enum for enum in Stations]
+
+	for line in lines:
+		if line[0] < 0:
+			continue
+		elif line[1] not in range(4):
+			continue
+		elif line[2] not in [enum.value for enum in TaskType]:
+			continue
+		elif line[3] not in range(1, 129):
+			continue
+		elif line[4] not in [enum.value for enum in Stations]:
+			continue
+		else:
+			tab.append(Task(line[0], line[1], TEnums[TTypes.index(line[2])], line[3], SEnums[STypes.index(line[4])]))
+	return tab
+
+
+def GetTasksByStation(tab, station):
+	tasks = []
+	for task in tab:
+		if task.getDestinationStation() == station:
+			tasks.append(task)
+	return tasks

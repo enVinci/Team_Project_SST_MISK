@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
 from Source import *
 from Source import vrep
 from Source import vrepConst
+from Source import openTasks, GetTasksByStation
+from Source import Stations
 
 def getObjectPosition(name):
 	errorCode, handle = vrep.simxGetObjectHandle(GlobalVar.vrepClientID, name, vrepConst.simx_opmode_oneshot_wait)
@@ -21,6 +24,26 @@ print(b.getDimX())
 p = CreatePaths()
 p.addBlock(b)
 p.createPathsAroundBlocks()
+
+#wyświetlenie zadań przydzielonych każdej stacji
+
+Tab = openTasks("zadania.txt")
+
+#wyświetlanie wszystkich stacji
+
+for enum in Stations:
+	print(enum)
+	t = GetTasksByStation(Tab, enum)
+	for task in t:
+		task.printTask()
+
+
+#wyświetlanie konkretnej stacji, odkomentować jak potrzebne
+
+#print(Stations.A)
+#t = GetTasksByStation(Tab, Stations.A)
+#for task in t:
+#task.printTask()
 
 # start symulation
 port = 19999

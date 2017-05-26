@@ -66,13 +66,14 @@ class CreatePaths:
     def createPathsAroundBlock(self, block):# zaimplementowac
         i = 0
         p2 = block.getPoint(i)
+        l = list()
+        l.append(p2)
         # while p2 != None:
         #     i+=1
         #     p1 = block.getPoint(i)
         #     self.paths.append(Path(p1, p2))
+        #     l.append(p1)
         #     p2 = p1
-        l = list()
-        l.append(p2)
         while p2!= None:
             #Będą tylko 4 punkty o różnych kombinacjach dwóch wartości x i y, więc można sobie uprościć
             i+=1

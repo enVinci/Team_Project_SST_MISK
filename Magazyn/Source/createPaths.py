@@ -83,7 +83,17 @@ class CreatePaths:
             else:
                 l.insert(p1,0)
         for i in range(4):
-           self.paths.append(Path(l[i],l[(i+1)%4]))
+            p1 = l[i]
+            p2 = l[(i+1)%4]
+            if p1.getX() < p2.getX():
+                self.paths.append(Path(p1,p2))
+            elif p1.getX() > p2.getX():
+                self.paths.append(Path(p2,p1))
+            elif p1.getY() < p2.getY():
+                self.paths.append(Path(p1,p2))
+            elif p1.getY() > p2.getY():
+                self.paths.append(Path(p2,p1))
+
         pass#dodaje utworzone sciezki wokol pojedynczego bloku palet do listy paths
     
     def createPathsAroundBlockNum(self, blockNum):

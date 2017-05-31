@@ -68,35 +68,46 @@ class CreatePaths:
         p2 = block.getPoint(i)
         l = list()
         l.append(p2)
-        # while p2 != None:
-        #     i+=1
-        #     p1 = block.getPoint(i)
-        #     self.paths.append(Path(p1, p2))
-        #     l.append(p1)
-        #     p2 = p1
         while p2!= None:
             #Będą tylko 4 punkty o różnych kombinacjach dwóch wartości x i y, więc można sobie uprościć
             i+=1
             p1 = block.getPoint(i)
-            if p1.getX() == l.get(i-1):
-                l.append(p1)
+            if p1.getY() < l.get(0).getY():
+                if p1.getX() < l.get(i-1).getX():
+                    l.append(p1)
+                else:
+                    l.insert(p1,i-1)
             else:
-                l.insert(p1,0)
-        for i in range(4):
-            p1 = l[i]
-            p2 = l[(i+1)%4]
-            if p1.getX() < p2.getX():
-                self.paths.append(Path(p1,p2))
-            elif p1.getX() > p2.getX():
-                self.paths.append(Path(p2,p1))
-            elif p1.getY() < p2.getY():
-                self.paths.append(Path(p1,p2))
-            elif p1.getY() > p2.getY():
-                self.paths.append(Path(p2,p1))
+                if p1.getX() > l.get(0).getX():
+                    l.insert(p1,0)
+                else:
+                    l.insert(p1,1)
+        space = block.getSpace()+block.getDimX()
+        for i in range(8):
+            self.paths.append(Path(l.get(0), Point(l.get(0).getX()+i*space, l.get(0).getY()), self.pathID))
+        for i in range(8):
+            self.paths.append(Path(l.get(1), Point(l.get(0).getX()+(i+8)*space, l.get(0).getY()), self.pathID))
+        for i in range(8):
+            self.paths.append(Path(l.get(2), Point(l.get(2).getX()+i*space, l.get(2).getY()), self.pathID))
+        for i in range(8):
+            self.paths.append(Path(l.get(3), Point(l.get(2).getX()+(i+8)*space, l.get(2).getY()), self.pathID))
+        self.pathID += 1
+        # for i in range(4):
+        #     p1 = l[i]
+        #     p2 = l[(i+1)%4]
+        #     if p1.getX() < p2.getX():
+        #         self.paths.append(Path(p1,p2))
+        #     elif p1.getX() > p2.getX():
+        #         self.paths.append(Path(p2,p1))
+        #     elif p1.getY() < p2.getY():
+        #         self.paths.append(Path(p1,p2))
+        #     elif p1.getY() > p2.getY():
+        #         self.paths.append(Path(p2,p1))
 
         pass#dodaje utworzone sciezki wokol pojedynczego bloku palet do listy paths
     
     def createPathsAroundBlockNum(self, blockNum):
+        self.pathID = 0
         if blockNum < len(self.blocks):
             self.createPathsAroundBlock(self.blocks[blockNum])
     

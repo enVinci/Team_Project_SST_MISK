@@ -8,6 +8,7 @@ from .general import Point
 import math
 
 class RobotInStorehouse:
+    hasPalette = 0
     def __init__(self, name):
         self.robot = MoveRobot(name)
     
@@ -36,20 +37,29 @@ class RobotInStorehouse:
         pass
 
     # Według dokumentacji to jest klasa niższego poziomu, niż moveRobotsInStorehouse, więc tutaj wykonuję wywołania
-    # funkcji z v-repa podlączające i odłączające robota do o od palety
+    # funkcji z v-repa podlączające i odłączające robota do i od palety
 
     def joinPallete(self, paletteId):
+        if self.hasPalette == 1:
+            pass
         errorCode, paletteHandle = simxGetObjectHandle(GlobalVar.vrepClientID,
                                                             palletNames(paletteId),
                                     simx_opmode_oneshot_wait)
         simxSetObjectParent(GlobalVar.vrepClientID, paletteHandle, self.handle, 1, simx_opmode_oneshot_wait)
+        self.hasPalette = 1
         pass
 
     def unjoinPalette(self, paletteId):
+        if self.hasPalette == 0:
+            pass
         errorCode, paletteHandle = simxGetObjectHandle(GlobalVar.vrepClientID, palletNames(paletteId),
                                                             simx_opmode_oneshot_wait)
         simxSetObjectParent(GlobalVar.vrepClientID, paletteHandle, -1, 1, simx_opmode_oneshot_wait)
+        self.hasPalette = 0
         pass
+
+    def isReady(self):
+        return self.robot.isReady()
 
     def setSpeed(self, velocity):
         self.robot.setSpeed(velocity)

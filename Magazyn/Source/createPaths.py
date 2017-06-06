@@ -2,13 +2,14 @@ from .general import Point
 from .general import Path
 
 class Dimentions:
+    pathSpace = 1.5
     dimX = 0
     dimY = 0
     space = 0
     rowsNumber = 0
     columnsCount = 0
     
-    def __init__(self, dimX, dimY = None, space = None, rowsNumber = None, columnsNumber = None):
+    def __init__(self, dimX, dimY = None, space = None, rowsNumber = None, columnsNumber = None, pathSpace = 1.5):
         if isinstance(dimX, Dimentions):
             self.init2(dimX)
         else:
@@ -83,14 +84,15 @@ class CreatePaths:
                 else:
                     l.insert(p1,1)
         space = block.getSpace()+block.getDimX()
+        pathSpace = block.getSpace
         for i in range(8):
-            self.paths.append(Path(l.get(0), Point(l.get(0).getX()+i*space, l.get(0).getY()), self.pathID))
+            self.paths.append(Path(Point(l.get(0).getX()-pathSpace, l.get(0).getY()), Point(l.get(0).getX()+i*space, l.get(0).getY()), self.pathID))
         for i in range(8):
-            self.paths.append(Path(l.get(1), Point(l.get(0).getX()+(i+8)*space, l.get(0).getY()), self.pathID))
+            self.paths.append(Path(Point(l.get(1).getX()+pathSpace, l.get(1).getY()), Point(l.get(0).getX()+(i+8)*space, l.get(0).getY()), self.pathID))
         for i in range(8):
-            self.paths.append(Path(l.get(2), Point(l.get(2).getX()+i*space, l.get(2).getY()), self.pathID))
+            self.paths.append(Path(Point(l.get(2).getX()-pathSpace, l.get(2).getY()), Point(l.get(2).getX()+i*space, l.get(2).getY()), self.pathID))
         for i in range(8):
-            self.paths.append(Path(l.get(3), Point(l.get(2).getX()+(i+8)*space, l.get(2).getY()), self.pathID))
+            self.paths.append(Path(Point(l.get(3).getX()+pathSpace, l.get(3).getY()), Point(l.get(2).getX()+(i+8)*space, l.get(2).getY()), self.pathID))
         self.pathID += 1
         # for i in range(4):
         #     p1 = l[i]

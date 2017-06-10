@@ -64,36 +64,40 @@ class CreatePaths:
     def addBlock(self, block):
         self.blocks.append(block)
         
-    def createPathsAroundBlock(self, block):# zaimplementowac
+    def createPathsAroundBlock(self, block,  pathID):# zaimplementowac
         i = 0
-        p2 = block.getPoint(i)
+        p1 = block.getPoint(i)
         l = list()
-        l.append(p2)
-        while p2!= None:
+        l.append(p1)
+        while p1!= None:
             #Będą tylko 4 punkty o różnych kombinacjach dwóch wartości x i y, więc można sobie uprościć
             i+=1
-            p1 = block.getPoint(i)
-            if p1.getY() < l.get(0).getY():
-                if p1.getX() < l.get(i-1).getX():
+            print("i = ", i)
+            if p1.getY() < l[0].getY():
+                if p1.getX() < l[i-1].getX():
                     l.append(p1)
                 else:
-                    l.insert(p1,i-1)
+                    l.insert(i-1, p1)
             else:
-                if p1.getX() > l.get(0).getX():
-                    l.insert(p1,0)
+                if p1.getX() > l[0].getX():
+                    l.insert(0, p1)
                 else:
-                    l.insert(p1,1)
+                    l.insert(1, p1)
+            p1 = block.getPoint(i)
         space = block.getSpace()+block.getDimX()
-        pathSpace = block.getSpace
+        pathSpace = block.pathSpace
         for i in range(8):
-            self.paths.append(Path(Point(l.get(0).getX()-pathSpace, l.get(0).getY()-pathSpace), Point(l.get(0).getX()+i*space, l.get(0).getY()-pathSpace), self.pathID))
+            self.paths.append(Path(Point(l[0].getX()-pathSpace, l[0].getY()-pathSpace), Point(l[0].getX()+i*space, l[0].getY()-pathSpace), pathID))
+            pathID += 1
         for i in range(8):
-            self.paths.append(Path(Point(l.get(1).getX()+pathSpace, l.get(1).getY()-pathSpace), Point(l.get(0).getX()+(i+8)*space, l.get(0).getY()-pathSpace), self.pathID))
+            self.paths.append(Path(Point(l[1].getX()+pathSpace, l[1].getY()-pathSpace), Point(l[0].getX()+(i+8)*space, l[0].getY()-pathSpace), pathID))
+            pathID += 1
         for i in range(8):
-            self.paths.append(Path(Point(l.get(2).getX()-pathSpace, l.get(2).getY()+pathSpace), Point(l.get(2).getX()+i*space, l.get(2).getY()+pathSpace), self.pathID))
+            self.paths.append(Path(Point(l[2].getX()-pathSpace, l[2].getY()+pathSpace), Point(l[2].getX()+i*space, l[2].getY()+pathSpace), pathID))
+            pathID += 1
         for i in range(8):
-            self.paths.append(Path(Point(l.get(3).getX()+pathSpace, l.get(3).getY()+pathSpace), Point(l.get(2).getX()+(i+8)*space, l.get(2).getY()+pathSpace), self.pathID))
-        self.pathID += 1
+            self.paths.append(Path(Point(l[3].getX()+pathSpace, l[3].getY()+pathSpace), Point(l[2].getX()+(i+8)*space, l[2].getY()+pathSpace), pathID))
+            pathID += 1
         # for i in range(4):
         #     p1 = l[i]
         #     p2 = l[(i+1)%4]
@@ -105,17 +109,19 @@ class CreatePaths:
         #         self.paths.append(Path(p1,p2))
         #     elif p1.getY() > p2.getY():
         #         self.paths.append(Path(p2,p1))
-
-        pass#dodaje utworzone sciezki wokol pojedynczego bloku palet do listy paths
+        return pathID
+        # pass#dodaje utworzone sciezki wokol pojedynczego bloku palet do listy paths
     
     def createPathsAroundBlockNum(self, blockNum):
-        self.pathID = 0
+        pathID = blockNum*16
         if blockNum < len(self.blocks):
-            self.createPathsAroundBlock(self.blocks[blockNum])
+            pathID = self.createPathsAroundBlock(self.blocks[blockNum], pathID)
     
     def createPathsAroundBlocks(self):
+        pathID = 0
         for block in self.blocks:
-            self.createPathsAroundBlock(block)
+            pathID = 0
+            pathID = self.createPathsAroundBlock(block, pathID)
             
     def getPaths(self):
         return self.paths

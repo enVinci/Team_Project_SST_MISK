@@ -1,4 +1,4 @@
-#from .general import Point
+from general import Point
 
 class Graph:
     nodes = dict()
@@ -129,35 +129,49 @@ class Graph:
 
 G = Graph()
 
-G.addNode("a")
-G.addNode("b")
-G.addNode("c")
-G.addNode("d")
-G.addNode("e")
-G.addNode("f")
-G.addNode("g")
-G.addNode("h")
+p1 = Point(1,1)
+p2 = Point(2,2)
+p3 = Point(4,3)
+p4 = Point(5,0)
+p5 = Point(3,-1)
+p6 = Point(9,-5)
 
+G.addNode(p1)
+G.addNode(p2)
+G.addNode(p3)
+G.addNode(p4)
+G.addNode(p5)
+G.addNode(p6)
+G.addNode(p3)
+
+G.addConnection(p1.distance(p2), p1, p2)
+G.addConnection(p2.distance(p3), p2, p3)
+G.addConnection(p3.distance(p4), p3, p4)
+G.addConnection(p1.distance(p5), p1, p5)
+G.addConnection(p4.distance(p5), p4, p5)
+G.addConnection(p4.distance(p6), p4, p6)
+
+# G.addNode("a")
+# G.addNode("b")
+# G.addNode("c")
+# G.addNode("d")
+# G.addNode("e")
+# G.addNode("f")
+# G.addNode("g")
+# G.addNode("h")
+#
+#
 # G.addConnection(1, "a", "b")
-# G.addConnection(2, "b", "c")
-# G.addConnection(1, "c", "d")
-# G.addConnection(2, "c", "e")
-# G.addConnection(1, "e", "g")
-# G.addConnection(3, "g", "b")
-# G.addConnection(1, "f", "g")
-# G.addConnection(4, "a", "g")
+# G.addConnection(1, "c", "b")
+# G.addConnection(3, "d", "b")
+# G.addConnection(1, "e", "b")
+# G.addConnection(1, "f", "b")
+# G.addConnection(1, "g", "b")
+# G.addConnection(1, "h", "b")
+# G.addConnection(1, "h", "d")
 
-G.addConnection(1, "a", "b")
-G.addConnection(1, "c", "b")
-G.addConnection(3, "d", "b")
-G.addConnection(1, "e", "b")
-G.addConnection(1, "f", "b")
-G.addConnection(1, "g", "b")
-G.addConnection(1, "h", "b")
-G.addConnection(1, "h", "d")
-
-tup = G.findPathDijkstra("a", "x")
+tup = G.findPathDijkstra(p2, p6)
 l = tup[0]
 for k in l:
-    print(k)
+    print(k.getX(), " ", k.getY())
 print("koszt:", tup[1])

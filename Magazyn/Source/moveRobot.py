@@ -1,7 +1,7 @@
-﻿from .general import Point
-from .vrep import *
-from .vrepConst import *
-from .globalVar import GlobalVar
+﻿from Source import general
+import vrep
+import vrepConst
+import GlobalVar
 import math
 
 class MoveRobot:

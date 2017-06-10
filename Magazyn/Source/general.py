@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
 import math
-from Source import vrep
-from  Source import vrepConst
-from .globalVar import GlobalVar
+import vrep
+import vrepConst
+import globalVar
 
 class Robots(Enum):
 	Robot1 = 1

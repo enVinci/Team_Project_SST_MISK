@@ -1,4 +1,4 @@
-from general import Point
+from Source.general import Point
 
 class Graph:
     nodes = dict()
@@ -81,7 +81,11 @@ class Graph:
                         cost = cost+self.nodes.get(p2,None).get(p1)
                         break
                     c1 = self.nodes.get(p2, None)
-                    if c1 != None:
+                    # print("dupa")
+                    # print(c1)
+                    # print("dupa2")
+                    # print(p1)
+                    if c1 != None and p1 != None:
                         cost = cost + c1.get(p1)
                 return (path, cost)
 

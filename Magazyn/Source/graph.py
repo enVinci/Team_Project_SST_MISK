@@ -8,21 +8,54 @@ class Graph:
         pass
 
     def addNode(self, p):
+        k = self.nodes.keys()
+
+        for p1 in k:
+            if p1 == p:
+                print("wtf1")
+                pass
+        print("wtf2")
         n = dict()
         self.nodes.update({p: n})
         self.size = self.size+1
         pass
 
     def addConnection(self, cost, p1, p2):
-        self.nodes.get(p1).update({p2: float(cost)})
-        self.nodes.get(p2).update({p1: float(cost)})
+        k = list(self.nodes.keys())
+        i1 = 0
+        i2 = 0
+
+        for p0 in k:
+            if p0 == p1:
+                break
+            i1 += 1
+
+        for p0 in k:
+            if p0 == p2:
+                break
+            i2 += 1
+
+        self.nodes.get(k[i1]).update({k[i2]: float(cost)})
+        self.nodes.get(k[i2]).update({k[i1]: float(cost)})
         pass
 
     def returnConnections(self, p):
         return self.nodes.get(p, None)
         pass
 
+    def __str__(self):
+        s = ""
+        l = self.nodes.keys()
+        for p in l:
+            s = s + "\n" + p.__str__() + ":"
+            connections = self.nodes.get(p).keys()
+            # print(len(connections))
+            for pn in connections:
+                s = s + "\n    " + pn.__str__() + " " + self.nodes.get(p).get(pn).__str__()
+        return s
+
     def findPathDijkstra(self, pOrigin, pDest):
+        print("Ilość elementów:", len(self.nodes.keys()))
         #####inicjalizacja
         if self.nodes.get(pOrigin) == None or self.nodes.get(pDest) == None:
             return ([],0)
@@ -75,6 +108,7 @@ class Graph:
                 while follower != dict() and p1 != None:
                     path.append(p1)
                     p2 = p1
+                    print("Rozmiar", len(follower))
                     p1 = follower.pop(p1, None)
                     if(p1 == pOrigin):
                         path.append(p1)
@@ -131,51 +165,32 @@ class Graph:
         return (path, cost)
 
 
-G = Graph()
-
-p1 = Point(1,1)
-p2 = Point(2,2)
-p3 = Point(4,3)
-p4 = Point(5,0)
-p5 = Point(3,-1)
-p6 = Point(9,-5)
-
-G.addNode(p1)
-G.addNode(p2)
-G.addNode(p3)
-G.addNode(p4)
-G.addNode(p5)
-G.addNode(p6)
-G.addNode(p3)
-
-G.addConnection(p1.distance(p2), p1, p2)
-G.addConnection(p2.distance(p3), p2, p3)
-G.addConnection(p3.distance(p4), p3, p4)
-G.addConnection(p1.distance(p5), p1, p5)
-G.addConnection(p4.distance(p5), p4, p5)
-G.addConnection(p4.distance(p6), p4, p6)
-
-# G.addNode("a")
-# G.addNode("b")
-# G.addNode("c")
-# G.addNode("d")
-# G.addNode("e")
-# G.addNode("f")
-# G.addNode("g")
-# G.addNode("h")
+# G = Graph()
 #
+# p1 = Point(1,1)
+# p2 = Point(2,2)
+# p3 = Point(4,3)
+# p4 = Point(5,0)
+# p5 = Point(3,-1)
+# p6 = Point(9,-5)
 #
-# G.addConnection(1, "a", "b")
-# G.addConnection(1, "c", "b")
-# G.addConnection(3, "d", "b")
-# G.addConnection(1, "e", "b")
-# G.addConnection(1, "f", "b")
-# G.addConnection(1, "g", "b")
-# G.addConnection(1, "h", "b")
-# G.addConnection(1, "h", "d")
-
-tup = G.findPathDijkstra(p2, p6)
-l = tup[0]
-for k in l:
-    print(k.getX(), " ", k.getY())
-print("koszt:", tup[1])
+# G.addNode(p1)
+# G.addNode(p2)
+# G.addNode(p3)
+# G.addNode(p4)
+# G.addNode(p5)
+# G.addNode(p6)
+# G.addNode(p3)
+#
+# G.addConnection(p1.distance(p2), p1, p2)
+# G.addConnection(p2.distance(p3), p2, p3)
+# G.addConnection(p3.distance(p4), p3, p4)
+# G.addConnection(p1.distance(p5), p1, p5)
+# G.addConnection(p4.distance(p5), p4, p5)
+# G.addConnection(p4.distance(p6), p4, p6)
+#
+# tup = G.findPathDijkstra(p2, p6)
+# l = tup[0]
+# for k in l:
+#     print(k.getX(), " ", k.getY())
+# print("koszt:", tup[1])

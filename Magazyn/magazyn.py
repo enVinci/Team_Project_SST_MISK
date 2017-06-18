@@ -6,9 +6,9 @@ from Source import vrepConst
 from Source import globalVar
 from Source.general import Point
 from Source.createPaths import *
-from Source import moveRobot
-from Source import moveRobotsInStorehouse
-from Source import storehause
+from Source.moveRobot import MoveRobot
+from Source.moveRobotsInStorehouse import MoveRobotsInStorehouse
+from Source.storehause import Storehouse
 from Source.general import Place
 from Source.general import openTasks, GetTasksByStation
 from Source.general import Stations
@@ -55,7 +55,7 @@ for enum in Stations:
 #task.printTask()
 
 # start symulation
-port = 19999
+port = 19997
 vrep.simxFinish(-1) # just in case, close all opened connections
 globalVar.vrepClientID = vrep.simxStart('127.0.0.1',port,True,True,5000,5) # Connect to V-REP
 

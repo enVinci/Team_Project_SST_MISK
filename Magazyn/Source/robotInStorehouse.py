@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Source import moveRobot
+from Source.moveRobot import MoveRobot
 from .vrep import *
 from  .vrepConst import *
 from .globalVar import GlobalVar

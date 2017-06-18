@@ -1,4 +1,4 @@
-from Source.general import Point
+from .general import Point
 
 class Graph:
     nodes = dict()

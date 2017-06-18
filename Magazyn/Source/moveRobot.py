@@ -1,7 +1,6 @@
-﻿from Source import general
-import Source.vrep
-import Source.vrepConst
-import Source.globalVar
+﻿from Source.vrep import *
+from Source.vrepConst import *
+from Source.globalVar import *
 from Source.general import Point
 import math
 

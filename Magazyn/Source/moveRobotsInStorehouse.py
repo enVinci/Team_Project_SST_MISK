@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from Source import robotInStorehouse
+from .robotInStorehouse import RobotInStorehouse
 from .general import *
 from .positions import *
 from .vrep import *
 from .vrepConst import *
+from .globalVar import *
 
 class MoveRobotsInStorehouse:
     def __init__(self):

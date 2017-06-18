@@ -4,7 +4,7 @@ from Source import graph
 from Source import vrep
 from Source import vrepConst
 from Source import globalVar
-from Source.general import Point
+from Source.positions import *
 from Source.createPaths import *
 from Source.moveRobot import MoveRobot
 from Source.moveRobotsInStorehouse import MoveRobotsInStorehouse
@@ -116,5 +116,5 @@ storehouse = Storehouse(places, palletNames, stations, dockStations, stationBuff
 print(storehouse.getPalletePosition(0).getX(), storehouse.getPalletePosition(0).getY())
 print(storehouse.getStationPosition(Stations.A).getX(), storehouse.getStationPosition(Stations.A).getY())
 
-vrep.simxFinish(GlobalVar.vrepClientID)
+vrep.simxFinish(globalVar.vrepClientID)
 print('Goodbye ;)')

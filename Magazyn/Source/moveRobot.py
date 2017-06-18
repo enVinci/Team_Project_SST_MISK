@@ -2,6 +2,7 @@
 from Source.vrepConst import *
 from Source.globalVar import *
 from Source.general import Point
+from Source.globalVar import *
 import math
 
 class MoveRobot:
@@ -28,7 +29,7 @@ class MoveRobot:
         self.updatePosition()
         dx = destX-self.position.x
         dy = destY-self.position.y
-        returnCode, Angles = simxGetObjectOrientation(self.clientID, self.handle, -1,
+        returnCode, Angles = simxGetObjectOrientation(GlobalVar.vrepClientID, self.handle, -1,
                                                       simx_opmode_oneshot_wait)
         # self.rotate(angle-Angles[2])
         dist = math.hypot(dx, dy)
@@ -49,10 +50,10 @@ class MoveRobot:
 
 
 
-        simxPauseCommunication(self.clientID, True)
-        returnCode = simxSetJointTargetPosition(self.clientID, self.left_motor_handle, self.left_motor_target_position , simx_opmode_oneshot)
-        returnCode = simxSetJointTargetPosition(self.clientID, self.right_motor_handle, self.right_motor_target_position , simx_opmode_oneshot)
-        simxPauseCommunication(self.clientID, False)
+        simxPauseCommunication(GlobalVar.vrepClientID, True)
+        returnCode = simxSetJointTargetPosition(GlobalVar.vrepClientID, self.left_motor_handle, self.left_motor_target_position , simx_opmode_oneshot)
+        returnCode = simxSetJointTargetPosition(GlobalVar.vrepClientID, self.right_motor_handle, self.right_motor_target_position , simx_opmode_oneshot)
+        simxPauseCommunication(GlobalVar.vrepClientID, False)
 
     def rotate(self, degrees):
         #returnCode, Angles = simxGetObjectOrientation(GlobalVar.vrepClientID, self.handle, -1, simx_opmode_oneshot_wait)
@@ -70,10 +71,10 @@ class MoveRobot:
         self.right_motor_target_position = self.right_motor_target_position*math.pi/180
         self.left_motor_target_position = self.left_motor_target_position*math.pi/180
 
-        simxPauseCommunication(self.clientID, True)
-        returnCode = simxSetJointTargetPosition(self.clientID, self.left_motor_handle, self.left_motor_target_position , simx_opmode_oneshot)
-        returnCode = simxSetJointTargetPosition(self.clientID, self.right_motor_handle, self.right_motor_target_position , simx_opmode_oneshot)
-        simxPauseCommunication(self.clientID, False)
+        simxPauseCommunication(GlobalVar.vrepClientID, True)
+        returnCode = simxSetJointTargetPosition(GlobalVar.vrepClientID, self.left_motor_handle, self.left_motor_target_position , simx_opmode_oneshot)
+        returnCode = simxSetJointTargetPosition(GlobalVar.vrepClientID, self.right_motor_handle, self.right_motor_target_position , simx_opmode_oneshot)
+        simxPauseCommunication(GlobalVar.vrepClientID, False)
 
     def setSpeed(self, velocity):
         self.speed = velocity

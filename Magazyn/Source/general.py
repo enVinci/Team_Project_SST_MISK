@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
 import math
-import Source.vrep
-import Source.vrepConst
-import Source.globalVar
+from Source.vrep import *
+from Source.vrepConst import *
+from Source.globalVar import *
 
 class Robots(Enum):
     Robot1 = 1
@@ -141,10 +141,10 @@ class Palette:
         self.actualPosition = self.beginPosition = beginPosition
         self.action = PaletteAction.isReady
         self.name = vrepName
-        errorCode,self.handler=vrep.simxGetObjectHandle(GlobalVar.vrepClientID,vrepName,vrepConst.simx_opmode_oneshot_wait)
+        errorCode,self.handler=simxGetObjectHandle(GlobalVar.vrepClientID,vrepName,simx_opmode_oneshot_wait)
     
     def updatePosition(self):
-        errorCode, Position = vrep.simxGetObjectPosition(GlobalVar.vrepClientID, self.handler, -1, vrepConst.simx_opmode_oneshot_wait)
+        errorCode, Position = simxGetObjectPosition(GlobalVar.vrepClientID, self.handler, -1, simx_opmode_oneshot_wait)
         self.actualposition.x = Position[0]
         self.actualposition.y = Position[1]
     

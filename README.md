@@ -1,5 +1,11 @@
 SST MISK Team project
 
+Zarządzania magazynem przy wykorzystaniu robotów mobilnych i symulatora V-REP
+
+V-REP:
+
+http://www.coppeliarobotics.com/
+
 Roadmap projektu:
 https://trello.com/b/qxZZKyiM/team-project-sst-misk-roadmap
 
@@ -26,5 +32,3 @@ git add .
 git commit -m "commit name"
 
 git push origin master
-
-Nie wrzucać żadnych śmieciowych plików!
